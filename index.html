@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:black;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at center, rgba(255,0,0,0.18), black 70%);
+    z-index:-1;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.glow{
+    font-size:3rem;
+    color:#ff1e56;
+    text-shadow:0 0 10px #ff1e56,0 0 20px #ff1e56,0 0 40px #ff1e56;
+    animation:pulse 2s infinite;
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:1.2rem;
+    color:#ffc1d6;
+    line-height:2;
+    max-width:700px;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:40px;
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:#ff1e56;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(255,30,86,0.6);
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* MUSIC */
+.music-box{
+    margin-top:25px;
+}
+
+/* VIDEO */
+.video-section{
+    display:none;
+    width:100%;
+    min-height:100vh;
+    background:black;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:30px 15px;
+}
+
+video{
+    width:90%;
+    max-width:900px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,0,0,0.5);
+}
+
+/* SLIDER */
+.slider{
+    overflow:hidden;
+    white-space:nowrap;
+    padding:60px 0;
+}
+
+.slider-track{
+    display:inline-block;
+    animation:slide 30s linear infinite;
+}
+
+.slider-track img{
+    width:220px;
+    height:220px;
+    margin:10px;
+    border-radius:20px;
+    object-fit:cover;
+    box-shadow:0 0 20px rgba(255,0,0,0.4);
+}
+
+/* FOOTER */
+.footer{
+    padding:50px 20px;
+    text-align:center;
+    font-size:1.4rem;
+    color:#ff4f81;
+}
+
+/* HEARTS */
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    color:red;
+    animation:floatUp 6s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0) scale(1);opacity:1;}
+    100%{transform:translateY(-100vh) scale(1.5);opacity:0;}
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!--  HEARTS -->
+<div class="hearts"></div>
+
+<!-- HERO -->
+<section class="hero">
+
+<h1 class="glow">
+Happiee Birthday  <br>
+Panni Kuttaaaaaaa
+</h1>
+
+<p class="subtitle">
+Epovum happy ah iru... <br>
+Udamba paathuko... <br>
+Career focus pannu... <br>
+Niraya achieve pannu 
+</p>
+
+<!--  MUSIC -->
+<div class="music-box">
+<audio id="bgMusic" autoplay loop>
+  <source src="karimizhi-kuruviye.mp4" type="audio/mp4">
+</audio>
+</div>
+
+<!--  BUTTON -->
+<button class="btn" onclick="openSurprise()">
+ Open Your Surprise
+</button>
+
+</section>
+
+<!--  VIDEO -->
+<section class="video-section" id="videoSection">
+
+<h2 style="margin-bottom:20px;color:#ff1e56;">
+A Special Surprise 
+</h2>
+
+<video controls playsinline>
+  <source src="lv_0_20260603111450.mp4" type="video/mp4">
+</video>
+
+</section>
+
+<!--  15 PHOTO SLIDER -->
+<section class="slider">
+<div class="slider-track">
+
+<img src="1000327411.jpg">
+<img src="1000327412.jpg">
+<img src="1000327403.jpg">
+<img src="1000327414.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+<img src="photo8.jpg">
+<img src="photo9.jpg">
+<img src="photo10.jpg">
+<img src="photo11.jpg">
+<img src="photo12.jpg">
+<img src="photo13.jpg">
+<img src="photo14.jpg">
+<img src="photo15.jpg">
+
+<!-- duplicate for smooth loop -->
+<img src="1000327411.jpg">
+<img src="1000327412.jpg">
+<img src="1000327403.jpg">
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+Forever Your Panni Kutti 
+</div>
+
+<script>
+
+/* autoplay music */
+window.addEventListener("load", function () {
+  const audio = document.getElementById("bgMusic");
+  audio.play().catch(() => {});
+});
+
+/* surprise video */
+function openSurprise(){
+  document.getElementById("videoSection").style.display = "flex";
+
+  setTimeout(() => {
+    document.getElementById("videoSection")
+    .scrollIntoView({behavior:'smooth'});
+  }, 300);
+}
+
+/*  floating hearts */
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+  document.querySelector(".hearts").appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
